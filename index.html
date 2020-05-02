@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>形象網站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+</head>
+
+<body>
+    <div id="app">
+        <video autoplay muted loop id="video">
+            <source src="./sources/bg.mp4" type="video/mp4">
+        </video>
+        <canvas id="canvas"></canvas>
+        <nav-tag></nav-tag>
+        <component :is="view"></component>
+        <footer-tag></footer-tag>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-carousel-3d@0.2.0/dist/vue-carousel-3d.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/particles.js"></script>
+</body>
+
+</html>

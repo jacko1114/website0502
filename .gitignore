@@ -1,0 +1,5 @@
+css/_*.scss
+css/*.scss
+css/all.scss
+css/all.css
+css/*.map
