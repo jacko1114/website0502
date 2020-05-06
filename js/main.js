@@ -1,4 +1,16 @@
 let vm = new Vue();
+Vue.component("load-tag", {
+  template: `<div class="container" id="loading">
+              <div class="wrapper">
+                <div class="content">
+                  <div class="loader">
+                    <div class="progress-bar"/>
+                  </div>
+                </div>
+              </div>
+            </div>`,
+  props: ["loading"],
+});
 Vue.component("nav-tag", {
   template: `<div id="nav" class="wrapper">
                 <div class="menu">
@@ -129,7 +141,6 @@ Vue.component("video-tag", {
     slide: Carousel3d.Slide,
   },
 });
-
 Vue.component("news-tag", {
   template: `<div id="news" class="wrapper">
                   <carousel :perPageCustom="[[0,2], [768, 3], [1024, 4]]" :navigation-enabled="true">
@@ -286,6 +297,7 @@ new Vue({
   data() {
     return {
       view: "index-tag",
+      loading: true,
     };
   },
   methods: {
@@ -294,8 +306,14 @@ new Vue({
         this.view = v;
       });
     },
+    loadPage() {
+      setTimeout(() => {
+        this.loading = false;
+      }, 3000);
+    },
   },
   mounted() {
     this.change();
+    this.loadPage();
   },
 });

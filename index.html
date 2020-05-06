@@ -11,19 +11,26 @@
 
 <body>
     <div id="app">
-        <video autoplay muted loop id="video">
-            <source src="./sources/bg.mp4" type="video/mp4">
-        </video>
+        <transition name="fade" mode="out-in">
+            <load-tag v-if="loading" :loading="loading"></load-tag>
+            <div v-else>
+                <video autoplay muted loop id="video">
+                    <source src="./sources/bg.mp4" type="video/mp4">
+                </video>
+                <nav-tag></nav-tag>
+                <transition name="fade" mode="out-in">
+                    <component :is="view"></component>
+                </transition>
+                <footer-tag></footer-tag>
+            </div>
+        </transition>
         <canvas id="canvas"></canvas>
-        <nav-tag></nav-tag>
-        <component :is="view"></component>
-        <footer-tag></footer-tag>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-carousel-3d@0.2.0/dist/vue-carousel-3d.min.js"></script>
     <script src="./js/main.js"></script>
-    <script src="./js/particles.js"></script>
+    <script defer src="./js/particles.js"></script>
 </body>
 
 </html>
