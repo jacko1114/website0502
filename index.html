@@ -10,13 +10,13 @@
 </head>
 
 <body>
+    <video autoplay muted loop id="video">
+        <source src="./sources/bg.mp4" type="video/mp4">
+    </video>
     <div id="app">
         <transition name="fade" mode="out-in">
             <load-tag v-if="loading" :loading="loading"></load-tag>
             <div v-else>
-                <video autoplay muted loop id="video">
-                    <source src="./sources/bg.mp4" type="video/mp4">
-                </video>
                 <nav-tag></nav-tag>
                 <transition name="fade" mode="out-in">
                     <component :is="view"></component>
