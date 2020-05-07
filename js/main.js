@@ -292,30 +292,28 @@ Vue.component("contact-tag", {
     };
   },
 });
-window.addEventListener("load", () => {
-  new Vue({
-    el: "#app",
-    data() {
-      return {
-        view: "index-tag",
-        loading: true,
-      };
+new Vue({
+  el: "#app",
+  data() {
+    return {
+      view: "index-tag",
+      loading: true,
+    };
+  },
+  methods: {
+    change() {
+      vm.$on("change", (v, c) => {
+        this.view = v;
+      });
     },
-    methods: {
-      change() {
-        vm.$on("change", (v, c) => {
-          this.view = v;
-        });
-      },
-      loadPage() {
-        setTimeout(() => {
-          this.loading = false;
-        }, 3000);
-      },
+    loadPage() {
+      setTimeout(() => {
+        this.loading = false;
+      }, 3000);
     },
-    mounted() {
-      this.change();
-      this.loadPage();
-    },
-  });
+  },
+  mounted() {
+    this.change();
+    this.loadPage();
+  },
 });
