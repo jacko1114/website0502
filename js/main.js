@@ -97,7 +97,7 @@ Vue.component("video-tag", {
                 <carousel_3d :controls-visible="true" :clickable="false">
                   <slide v-for="(v, i) in videos" :index="i" :key="i">
                     <p class="header">{{v.title}}</p>
-                    <video muted loop autoplay>
+                    <video autoplay muted loop playsinline>
                       <source :src="v.srcpath" type="video/mp4">
                     </video>
                     <p class="content">{{v.content}}</p>
